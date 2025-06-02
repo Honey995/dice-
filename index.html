@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice</title>
+    <link rel="stylesheet" href="style.css" />
+   
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+
+      </div>
+
+      <button id="shuffle">shuffle</button>
+    </div>
+    <script>
+        let box = document.querySelector(".box");
+        let btn = document.getElementById("shuffle");
+        let images = ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png'];
+        let rnd = 0;
+
+        btn.addEventListener("click", () => {
+            let time = 0;
+            let intr = setInterval(() => {
+                time += 1;
+                setImg();
+                if (time > 20) {
+                    clearInterval(intr);
+                    console.log(rnd + 1);
+                }
+            }, 60);
+        });
+
+        function setImg() {
+            rnd = Math.floor(Math.random() * images.length);
+            box.style.background = `url(${images[rnd]})`;
+            box.style.backgroundSize = 'cover';
+        }
+    </script>
+  </body>
+</html>
