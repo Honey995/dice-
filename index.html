@@ -29,6 +29,10 @@
                 if (time > 20) {
                     clearInterval(intr);
                     console.log(rnd + 1);
+
+                    let speech = new SpeechSynthesisUtterance(rnd+1)
+
+                    window.speechSynthesis.speak(speech)
                 }
             }, 60);
         });
